@@ -1,0 +1,35 @@
+<h2><i class="fa fa-cogs"></i> Panneau d'administration</h2>
+
+<nav>
+    <?php foreach($Author as $Author): ?>
+    <a href="add_post.php?AuthorId=<?= $Author['id'] ?>">Rédiger un nouvel article en tant que <?= $Author['FirstName'] ?></a>
+    <?php endforeach; ?>
+</nav>
+
+<table>
+    <caption>Liste des articles</caption>
+    <thead>
+        <tr>
+            <th>Titre</th>
+            <th>Article</th>
+            <th>Auteur</th>
+            <th>Catégorie</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Affichage de tous les articles -->
+            <?php foreach ($messages as $message) :?>
+            <tr>
+                <td><a href="" target="_blank"><?= $message['Title'] ?></a></td>
+                <td><?= $message['Contents'] ?></td>
+                <td><?= $message['FirstName'] ?></td>
+                <td><?= $message['Category_Name'] ?></td>
+                <td>
+                    <a class="edit" href="edit_post.php?id=<?= $message['Id'] ?>"><i class="fa fa-pencil"></i></a>
+                    <a class="remove" href="delete_post.php?id=<?= $message['Id'] ?>"><i class="fa fa-remove"></i></a>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+    </tbody>
+</table>
